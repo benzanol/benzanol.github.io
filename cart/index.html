@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<style>
+  html {
+      font-family: sans;
+  }
+
+  input {
+      margin-right: 20px;
+  }
+
+  button:hover {
+      cursor: pointer;
+  }
+
+
+  button {
+      background: none;
+      border-style: solid;
+      border-color: darkgray;
+      border-width: thin;
+      border-radius: 20px;
+  }
+
+  #add-equation, #go, #solve {
+      padding: 5px 15px 5px 15px;
+      font-size: medium;
+      margin-top: 10px;
+  }
+
+  #play-button {
+      padding: 4px 8px 6px 10px;
+      font-size: medium;
+  }
+
+  .delete-button {
+      border-width: 0px;
+      font-size: large;
+      transform: scale(70%);
+  }
+
+</style>
+<html>
+<script type="module" crossorigin src="/assets/index-DIqUxEdl.js"></script>
+
+  Note: In order for gravity to appear most accurate, the total time should be around 20 seconds.
+  <br/>
+  <br/>
+  <br/>
+
+  <div id="equations"></div>
+  <button id="add-equation">Add Interval</button>
+
+  <br/><br/>
+
+  <input type="text" id="starting-angle"></input>
+
+  <br/><br/>
+
+
+  <button id="solve">Find Angle</button>
+  <span style="padding-left: 20px"></span>
+  <span id="angle-solution"></span>
+  <span style="padding-left: 20px"></span>
+  <span id="angle-iterations"></span>
+
+  <br/><br/>
+
+  <button id="play-button">&#9654;</button>
+
+  <input type="range" min="0" max="1000" id="time-slider"></input>
+
+  t = <span id="t-label">0</span>
+  <span style="padding-left: 20px"></span>
+  &#952; = <span id="theta-label">0</span>
+  <span style="padding-left: 20px"></span>
+  &#916; &#952; = <span id="angvel-label">0</span>
+  <span style="padding-left: 20px"></span>
+  F = <span id="f-label">0</span>
+  <span style="padding-left: 20px"></span>
+  v = <span id="v-label">0</span>
+  <span style="padding-left: 20px"></span>
+  x = <span id="x-label">0</span>
+
+  <br/><br/>
+
+  <canvas id="graph-canvas" width="1000px" height="180px"></canvas>
+
+  <br/><br/>
+
+  <canvas id="cart-canvas"  width="1000px" height="250px"></canvas>
+
+
+</html>
+
