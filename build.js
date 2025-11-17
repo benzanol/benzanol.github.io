@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+import { spawnSync, execSync } from "child_process";
 import { resolve } from "path";
 import fs from "fs";
 
@@ -9,28 +9,40 @@ const projects = [
         name: "symbulator",
         script: "sh build.sh dist/index.html",
     },
-    { name: "termui" },
+    { name: "termui", output: "portfolio" },
 ];
 
+const onlyProject = process.argv[2];
+if (onlyProject) {
+    console.log("Only building project", onlyProject);
+}
+
 for (const project of projects) {
+    if (onlyProject && project.name !== onlyProject) {
+        continue;
+    }
+
     const cwd = resolve(process.cwd(), "src", project.name);
+    const base = project.output ?? project.name;
+
+    const target = resolve(base);
+    fs.rmSync(target, { recursive: true, force: true });
 
     console.log(`\n==================== ${project.name} ====================\n`);
 
     if (project.script) {
         console.log(`Running custom build for ${project.name}...`);
         execSync(project.script, { cwd, stdio: "inherit" });
+
+        const distPath = resolve(cwd, "dist");
+        fs.cpSync(distPath, target, { recursive: true });
+        console.log(`→ Copied ${project.name}/dist to /${base}`);
     } else {
         console.log(`Building ${project.name} with Vite...`);
-        execSync("npx vite build", {
-            cwd,
-            stdio: "inherit",
-        });
+        spawnSync(
+            "npx",
+            ["vite", "build", `--base=/${base}`, `--outDir=${target}`],
+            { cwd, stdio: "inherit" }
+        );
     }
-
-    const distPath = resolve(cwd, "dist");
-    const target = resolve(project.name);
-    fs.rmSync(target, { recursive: true, force: true });
-    fs.cpSync(distPath, target, { recursive: true });
-    console.log(`→ Copied ${project}/dist to /${project}`);
 }
