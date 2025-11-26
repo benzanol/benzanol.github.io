@@ -4,11 +4,122 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>TermUI</title>
-      <script type="module" crossorigin src="/portfolio/assets/index-C-vlSpjC.js"></script>
-      <link rel="stylesheet" crossorigin href="/portfolio/assets/index-n3GqyA0y.css">
+
+        <style>
+            body {
+                --bg-color: #272a32;
+                --fg-color: lightgray;
+
+                margin: 0;
+                color: var(--fg-color);
+                border: 3px solid gray;
+                border-radius: 8px;
+                padding: 3px 0px;
+                padding-left: 10px;
+
+                box-sizing: border-box;
+                height: 100vh;
+                background: var(--bg-color);
+            }
+            body.loading {
+                display: none;
+            }
+
+            #floating::backdrop {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            #floating {
+                --width: 60vw;
+                --height: 70vh;
+
+                width: var(--width);
+                /* left: calc((100% - var(--width))/2); */
+                height: var(--height);
+                /* top: calc((100% - var(--height))/2); */
+
+                /* border: 3px solid gray; */
+                border: none;
+                outline: none;
+                border-radius: 8px;
+                padding: 8px 6px 3px 10px;
+                background-color: var(--bg-color);
+                overflow: hidden;
+            }
+
+            #icon-container {
+                --icon-size: 3em;
+                --icon-gap: 0.5em;
+                --icon-count: 3;
+
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                gap: var(--icon-gap);
+
+                position: absolute;
+                top: 1em;
+                right: 1em;
+
+                padding: 0px calc(var(--icon-gap) / 2);
+
+                width: var(--icon-size);
+                height: calc(var(--icon-size) + 1em);
+                overflow: hidden;
+                transition: width ease 0.2s;
+
+                z-index: 100;
+            }
+            #icon-container:hover {
+                width: calc((var(--icon-size) + var(--icon-gap)) * var(--icon-count));
+            }
+
+            #icon-container img {
+                image-rendering: pixelated;
+                width: var(--icon-size);
+                height: var(--icon-size);
+                cursor: pointer;
+            }
+            #icon-container > *:hover {
+                transform: scale(1.1);
+            }
+        </style>
+      <script type="module" crossorigin src="/portfolio/assets/index-BAx67bCh.js"></script>
+      <link rel="stylesheet" crossorigin href="/portfolio/assets/index-IGP2_48x.css">
     </head>
     <body>
-        <div id="term-root"></div>
+        <main id="term-root"></main>
+        <dialog id="floating"></dialog>
+        <dialog id="image-slideshow">
+            <p class="label"></p>
+            <button class="left">
+                <svg viewBox="0 0 100 300" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        style="
+                            stroke: currentColor;
+                            fill: none;
+                            stroke-width: 60px;
+                            stroke-linecap: round;
+                        "
+                        d="M 100 0 L 0 150 L 100 300"
+                    />
+                </svg>
+            </button>
+            <button class="right">
+                <svg viewBox="0 0 100 300" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        style="
+                            stroke: currentColor;
+                            fill: none;
+                            stroke-width: 60px;
+                            stroke-linecap: round;
+                        "
+                        d="M 0 0 L 100 150 L 0 300"
+                    />
+                </svg>
+            </button>
+            <main class="content"></main>
+        </dialog>
+
         <div id="icon-container">
             <a href="help">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAXdJREFUOE9dU4t1wjAMPM0ATFGYITBFsgfJFCRzFLYgO6RTFGZQ0Z1sGvx4EBz5fpINsQyA84nrNvy4/99wg5mjveyjclVfN8yB72FxbZT1gZynu8s+ymFwcou1X6ghtk79FlRQzpsB7pjHB8jgQDdJDb9uw+JCBJp+i6hiXfCk/PgN0Pv0JHP8b6cvC2xch2AXSzMUgCh+UF1z3grepKJI68aDWbBTekCYqbgUhl66BY7nsAXM0zMTN7g7EkDsZOt3lHgPpvQbOMd+x5pqocAUBYqS7lY9rbnkewIHs30qqH1ft07+teg/DjJEPsIiQLaiDBILsiPnTQ2MgWYNk2duJgCKV2eUWco7DTsGFcEFazY3rYpGc9AvAfbeUEvQ9BuyztlOHqlKgXbcS4yCXHsX3/uCFFvFbQAJID7uOUwa5XKQU/maASb/AdiOh+i9LOiIQNKVpjIAzDCPvxms0tNlqhnkhYytNHKN61wNS2FQdRexauqV+B97VOG7ZCo/uwAAAABJRU5ErkJgggAA" alt="info" />

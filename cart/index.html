@@ -40,30 +40,38 @@
 
 </style>
 <html>
-<script type="module" crossorigin src="/cart/assets/index-DIqUxEdl.js"></script>
+<script type="module" crossorigin src="/cart/assets/index-DlYe8dcU.js"></script>
 
-  Note: In order for gravity to appear most accurate, the total time should be around 20 seconds.
-  <br/>
-  <br/>
+  <h4>Instructions:</h4>
+  <p>Note: In order for gravity to appear most accurate, the total time should be around 20 seconds.</p>
+  <p>Each interval of the piecewise function has a time component (how long the interval should last for) and an equation component (the velocity of the train car during that time interval.)</p>
+  <p>This means that the velocity does not have to be continuous: It can suddenly speed up or reverse directions instantaneously.</p>
+  <p>Each equation should be a valid Javascript expression using the variable t for time. For example:</p>
+  <ul>
+    <li>Normal Operations: t+1, 2*t, t/4</li>
+    <li>Exponents: t**2, 2**t, t**t</li>
+    <li>Trig: Math.sin(t), Math.cos(t), Math.tan(t)</li>
+  </ul>
+  <p>The blue line shows velocity, the green line shows position, and the purple line shows the angle of the rod as a function of time.</p>
   <br/>
 
+  <h4>Velocity Equation:</h4>
   <div id="equations"></div>
   <button id="add-equation">Add Interval</button>
 
-  <br/><br/>
-
+  <label for="starting-angle"><h4>Starting Angle:</h4></label>
   <input type="text" id="starting-angle"></input>
 
   <br/><br/>
 
 
-  <button id="solve">Find Angle</button>
+  <button id="solve">Find Optimal Angle</button>
   <span style="padding-left: 20px"></span>
   <span id="angle-solution"></span>
   <span style="padding-left: 20px"></span>
   <span id="angle-iterations"></span>
 
-  <br/><br/>
+  <h4>Simulation:</h4>
 
   <button id="play-button">&#9654;</button>
 

@@ -9,7 +9,7 @@ const projects = [
         name: "symbulator",
         script: "sh build.sh dist/index.html",
     },
-    { name: "termui", output: "portfolio" },
+    { name: "portfolio" },
 ];
 
 const onlyProject = process.argv[2];
