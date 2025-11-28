@@ -1,3 +1,5 @@
+#!node
+
 import { spawnSync, execSync } from "child_process";
 import { resolve } from "path";
 import fs from "fs";
@@ -5,6 +7,8 @@ import fs from "fs";
 const projects = [
     { name: "cart" },
     { name: "classdex" },
+    { name: "apollonian-packing" },
+    { name: "brainfun" },
     {
         name: "symbulator",
         script: "sh build.sh dist/index.html",

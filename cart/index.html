@@ -38,9 +38,16 @@
       transform: scale(70%);
   }
 
+  body>p {
+    max-width: 50%;
+  }
+  body {
+    padding: 10px;
+  }
+
 </style>
 <html>
-<script type="module" crossorigin src="/cart/assets/index-DlYe8dcU.js"></script>
+<script type="module" crossorigin src="/cart/assets/index-CU-qmmhQ.js"></script>
 
   <h4>Instructions:</h4>
   <p>Note: In order for gravity to appear most accurate, the total time should be around 20 seconds.</p>
@@ -52,7 +59,11 @@
     <li>Exponents: t**2, 2**t, t**t</li>
     <li>Trig: Math.sin(t), Math.cos(t), Math.tan(t)</li>
   </ul>
-  <p>The blue line shows velocity, the green line shows position, and the purple line shows the angle of the rod as a function of time.</p>
+  <p>
+    The green line shows velocity, the blue line shows the force on the rod, and the purple line shows the angle of the rod.
+    The "goal" of the program is to get the purple line to be within the boundaries of the graph for the entire run,
+    as this would mean the rod never dips below the surface.
+  </p>
   <br/>
 
   <h4>Velocity Equation:</h4>

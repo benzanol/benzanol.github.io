@@ -1,0 +1,72 @@
+<style>
+    body {
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+    }
+    #canvas1 {
+        width: 40vw;
+        height: 40vw;
+    }
+    #canvas2-container {
+        position: relative;
+        height: fit-content;
+    }
+    #canvas2 {
+        width: 25vw;
+        height: 25vw;
+    }
+    #dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: red;
+        border: 1px solid black;
+        border-radius: 50px;
+    }
+    #loading::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    #instructions {
+        display: inline-block;
+    }
+</style>
+
+<script type="module" crossorigin src="/apollonian-packing/assets/index-C7U6Qot5.js"></script>
+
+<body>
+    <dialog id="loading">Generating graph...</dialog>
+    <canvas width="200px" height="200px" id="canvas1"></canvas>
+    <div id="canvas2-container">
+        <canvas width="400px" height="400px" id="canvas2"></canvas>
+        <div id="dot"></div>
+    </div>
+
+    <div id="instructions">
+        <p>
+            For more information on Apollonian Circle Packings, and the graph shown at right, check
+            out
+            <a href="https://web.colby.edu/janholly/files/2021/11/Holly21pdf.pdf">this</a> paper
+        </p>
+        <p>Use arrow keys (or vim keys) and +/- to navigate around the packing.</p>
+        <p>
+            Use WASD to change each radius ratio (each is between 0 and 1) of the 3 circles
+            generating the packing. The red dot indicates where on the graph this packing lies (the
+            x axis is ratio of the largest radius to the second largest, the y axis is the ratio of
+            the second largest radius to the smallest.)
+        </p>
+        <p>
+            The dark lines on the graph represent half-plane packings, which occurs when the edges
+            of the circles in the packing align to create a line.
+        </p>
+        <p>
+            Intersections of two dark lines on the graph represent line packings, which occur when
+            the edges of the circles perfectly align to create two lines, bounding the packing from
+            above and below.
+        </p>
+        <p>Current ratio pair = <span id="current-ratio-pair"></span></p>
+    </div>
+</body>
+
