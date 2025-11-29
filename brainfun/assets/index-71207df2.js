@@ -153,7 +153,9 @@ Perform naive add
 
 00 x0 ~~~ ^x0 00 ~~~ 00 00 ~~~ 00 00
 
-[{Divide10} <<]`,Subtract:`>>[>>] >>>> @D second digit of num2; Assume first digit is unused
+Decrement the cell before and increment after dividing by 10
+since numbers are stored as one more than their actual value
+[-{Divide10}+ <<]`,Subtract:`>>[>>] >>>> @D second digit of num2; Assume first digit is unused
 [ Invert each digit (except first) of num2 around 9
 | - > +++++ +++++ < [->-<] >[-<+>] >
 ] @D after num2
