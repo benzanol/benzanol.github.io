@@ -9,6 +9,7 @@ const projects = [
     { name: "classdex" },
     { name: "apollonian-packing" },
     { name: "brainfun" },
+    { name: "rice-datathon-2024" },
     {
         name: "symbulator",
         script: "sh build.sh dist/index.html",
